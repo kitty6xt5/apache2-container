@@ -2,8 +2,13 @@
 # Taking ubuntu image
 FROM ubuntu:latest
 
-#installing and running apt's
+#Installing and running apt's
 
 RUN apt update
+
 RUN apt install apache2 -y
-CMD 
+COPY apache2.sh .
+
+RUN chmod +x apache2.sh
+
+CMD ["./apache2.sh"]
